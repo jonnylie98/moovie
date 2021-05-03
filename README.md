@@ -22,6 +22,8 @@ Full stack application built with REST API. Store and retrieve data in JSON file
 
 # Getting Started/Installation
 
+ You will need node and npm installed globally on your machine.
+
 ## 1. Clone the repository or download the zip
 
 ```
@@ -65,4 +67,8 @@ npm install
 ```
 npm start
 ```
+
+Runs the app in the development mode. Open http://localhost:3000 to view it in the browser.
+
+The page will reload if you make edits.
 
