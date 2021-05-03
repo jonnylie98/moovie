@@ -12,7 +12,7 @@ const Form = ({ addPlaylist, setPlaylistAdded }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     createPlaylist();
-    setPlaylistAdded();
+    setPlaylistAdded(false);
     resetValues();
   };
 

@@ -57,7 +57,9 @@ const Home = () => {
           <div className="btn-wrapper">
             <button
               className="manage-btn"
-              onClick={() => setPlaylistsManaged(!playlistsManaged)}
+              onClick={() =>
+                setPlaylistsManaged((currentManaged) => !currentManaged)
+              }
             >
               MANAGE PLAYLISTS
             </button>

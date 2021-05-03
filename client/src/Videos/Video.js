@@ -15,7 +15,7 @@ const Video = ({
   addPlaylist,
   addPlaylistVideos,
   videosManaged,
-  playAnimation,
+  toggleAnimation,
 }) => {
   const addOrRemoveVideo = (url) => {
     const videoToAddOrRemove = {
@@ -78,7 +78,7 @@ const Video = ({
           <button
             onClick={() => {
               addOrRemoveVideo(ACTIONS.ADD_VIDEOS);
-              playAnimation();
+              toggleAnimation();
             }}
             className="action-btn"
           >

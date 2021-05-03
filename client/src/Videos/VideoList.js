@@ -31,8 +31,8 @@ const VideoList = ({
     });
   }, [videoIds]);
 
-  const stopAddingVideos = () => {
-    setVideosAdded(!videosAdded);
+  const stopAddingVideos = (animationStopped) => {
+    if (animationStopped) setVideosAdded((currentAdded) => !currentAdded);
   };
 
   const addPlaylistVideos = (newPlaylistVideos) => {
@@ -57,10 +57,7 @@ const VideoList = ({
               />
             </div>
             <div className="manage-btn-container">
-              <button
-                className="video-manage-btn"
-                onClick={() => setVideosAdded(!videosAdded)}
-              >
+              <button className="video-manage-btn" onClick={stopAddingVideos}>
                 ADD VIDEOS
               </button>
               <button

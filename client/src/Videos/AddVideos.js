@@ -20,17 +20,16 @@ const AddVideos = ({
     VIDEOS_PER_PAGE
   );
   const [animationStopped, setAnimationStopped] = useState(true);
-  const container = useRef(null);
+  const animationContainer = useRef(null);
 
   useEffect(() => {
     lottie.loadAnimation({
-      container: container.current,
+      container: animationContainer.current,
       renderer: "svg",
       loop: false,
       autoplay: false,
       animationData: require("../images/done.json"),
     });
-    container.current = null;
   }, []);
 
   useEffect(() => {
@@ -39,7 +38,7 @@ const AddVideos = ({
       lottie.play();
       setTimeout(() => {
         lottie.stop();
-        setAnimationStopped(true);
+        toggleAnimation();
         setVisibiliity("hidden");
       }, 3000);
     }
@@ -51,13 +50,13 @@ const AddVideos = ({
     ).style.visibility = visibility;
   };
 
-  const playAnimation = () => {
-    setAnimationStopped(false);
+  const toggleAnimation = () => {
+    setAnimationStopped((currentState) => !currentState);
   };
 
   return (
     <div className="add-videos-page">
-      <div className="animation-container" ref={container}></div>
+      <div className="animation-container" ref={animationContainer}></div>
       <header className="add-videos title">
         <h1>MOOVIE</h1>
       </header>
@@ -68,7 +67,7 @@ const AddVideos = ({
             size={"2x"}
             color={"white"}
             className="back-btn"
-            onClick={stopAddingVideos}
+            onClick={() => stopAddingVideos(animationStopped)}
           />
         </div>
       </div>
@@ -82,7 +81,7 @@ const AddVideos = ({
             currentPlaylistId={currentPlaylistId}
             addPlaylist={addPlaylist}
             addPlaylistVideos={addPlaylistVideos}
-            playAnimation={playAnimation}
+            toggleAnimation={toggleAnimation}
           />
         ))}
         <div ref={loaderRef} />
