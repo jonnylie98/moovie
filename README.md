@@ -27,7 +27,7 @@ Full stack application built with REST API. Store and retrieve data in JSON file
 ## 1. Clone the repository or download the zip
 
 ```
-git clone https://github.com/Jonnylie/Pathfinding-Visualizer.git
+git clone https://github.com/Jonnylie/moovie.git
 ```
 
 ## 2. Go to server directory
