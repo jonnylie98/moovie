@@ -1,4 +1,4 @@
-# moovie
+# Moovie
 
 Full stack application built with REST API. Store and retrieve data in JSON files on the backend to persist the data.
 
