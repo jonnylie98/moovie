@@ -11,7 +11,6 @@ const Form = ({ addPlaylist, setPlaylistAdded }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    e.stopPropagation();
     createPlaylist();
     setPlaylistAdded((currAdded) => !currAdded);
     resetValues();
