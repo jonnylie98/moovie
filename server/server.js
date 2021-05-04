@@ -3,7 +3,6 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const jsonfile = require("jsonfile");
 
-const playlists = require("./playlists.json");
 const videos = require("./videos.json");
 
 const app = express();
@@ -30,11 +29,11 @@ app.post("/remove-playlist", (req, res) => {
 });
 
 app.get("/retrieve-playlist", (req, res) => {
-  res.json(playlists);
+  retrievePlaylists(res);
 });
 
 app.get("/retrieve-videos", (req, res) => {
-  res.json(videos);
+  retrieveVideos(res);
 });
 
 app.post("/add-videos", (req, res) => {
@@ -63,6 +62,18 @@ const getDateCreated = () => {
   const sec = String(today.getSeconds()).padStart(2, "0");
 
   return yyyy + "-" + mm + "-" + dd + "T" + hour + ":" + min + ":" + sec;
+};
+
+const retrievePlaylists = (res) => {
+  jsonfile.readFile("playlists.json", (err, body) => {
+    res.json(body);
+  });
+};
+
+const retrieveVideos = (res) => {
+  jsonfile.readFile("videos.json", (err, body) => {
+    res.json(body);
+  });
 };
 
 const addVideo = (res, playlistId, videoId) => {

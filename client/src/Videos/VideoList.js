@@ -62,7 +62,7 @@ const VideoList = ({
               </button>
               <button
                 className="video-manage-btn"
-                onClick={() => setVideosManaged(!videosManaged)}
+                onClick={() => setVideosManaged((currManaged) => !currManaged)}
               >
                 MANAGE VIDEOS
               </button>
